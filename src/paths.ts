@@ -1,3 +1,6 @@
 export const paths = {
-  index: "/",
+  home: "/",
+  calendar: "/calendar",
+  statistics: "/statistics",
+  map: "/map",
 };
