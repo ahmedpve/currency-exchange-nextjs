@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import Head from "next/head";
 import { appConfig } from "../config";
 
@@ -8,7 +9,7 @@ export default function Home() {
         <title>{`Home | ${appConfig.title}`}</title>
       </Head>
 
-      <div></div>
+      <Box></Box>
     </>
   );
 }

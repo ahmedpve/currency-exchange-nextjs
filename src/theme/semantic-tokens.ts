@@ -1,6 +1,10 @@
 export const semanticTokens = {
   colors: {
     bg: {
+      body: {
+        _light: "neutral.50",
+        _dark: "blackAlpha.900",
+      },
       clear: {
         _light: "white",
         _dark: "blackAlpha.900",
