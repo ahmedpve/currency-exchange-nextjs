@@ -2,6 +2,7 @@ import { Box, Button, Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaCalendarDays, FaChartLine, FaMap, FaTableColumns } from "react-icons/fa6";
+import { appConfig } from "../../config";
 import { paths } from "../../paths";
 import Logo from "../elements/logo";
 
@@ -17,8 +18,16 @@ export default function SideNavContent() {
   ];
 
   return (
-    <Box>
-      <Box as="header">
+    <Box
+      w="full"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
+      <Box
+        as="header"
+        py="space-lg"
+      >
         <Logo />
       </Box>
       <Box
@@ -26,22 +35,40 @@ export default function SideNavContent() {
         display="flex"
         flexDirection="column"
         gap="space-sm"
-        py="space-lg"
+        flexGrow="1"
+        py="space-sm"
       >
         {navLinks.map((navLink, i) => (
-          <Button
+          <Box
             key={i}
-            as={Link}
-            href={navLink.path}
-            colorScheme="primary"
-            variant={isNavLinkSelected(navLink.path) ? "solid" : "ghost"}
-            leftIcon={<Icon as={navLink.icon} />}
-            justifyContent="flex-start"
-            color={isNavLinkSelected(navLink.path) ? "neutral.50" : "text.primary"}
+            as="li"
           >
-            {navLink.label}
-          </Button>
+            <Button
+              as={Link}
+              href={navLink.path}
+              colorScheme="primary"
+              variant={isNavLinkSelected(navLink.path) ? "solid" : "ghost"}
+              leftIcon={<Icon as={navLink.icon} />}
+              justifyContent="flex-start"
+              w="48"
+              color={isNavLinkSelected(navLink.path) ? "neutral.50" : "text.primary"}
+            >
+              {navLink.label}
+            </Button>
+          </Box>
         ))}
+      </Box>
+      <Box
+        as="footer"
+        borderTop="1px"
+        borderColor="border"
+        p="space-sm"
+        w="full"
+        color="text.secondary"
+        fontSize="sm"
+        textAlign="center"
+      >
+        {appConfig.copyright}
       </Box>
     </Box>
   );

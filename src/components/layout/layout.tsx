@@ -1,5 +1,4 @@
 import { Box, Heading, useDisclosure } from "@chakra-ui/react";
-import { appConfig } from "../../config";
 import SideNavContent from "./side-nav-content";
 
 type LayoutProps = {
@@ -24,7 +23,6 @@ export default function Layout({ children }: LayoutProps) {
         h="full"
         borderRight="1px"
         borderColor="border"
-        p="space-md"
       >
         <SideNavContent />
       </Box>
@@ -54,16 +52,6 @@ export default function Layout({ children }: LayoutProps) {
           flexGrow="1"
         >
           {children}
-        </Box>
-        <Box
-          as="footer"
-          bgColor="bg.clear"
-          p="space-sm"
-          color="text.secondary"
-          fontSize="sm"
-          textAlign="center"
-        >
-          {appConfig.copyright}
         </Box>
       </Box>
     </Box>
