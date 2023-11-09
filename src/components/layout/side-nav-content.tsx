@@ -26,7 +26,7 @@ export default function SideNavContent() {
     >
       <Box
         as="header"
-        py="space-lg"
+        py="space-md"
       >
         <Logo />
       </Box>
@@ -36,7 +36,7 @@ export default function SideNavContent() {
         flexDirection="column"
         gap="space-sm"
         flexGrow="1"
-        py="space-sm"
+        py="space-md"
       >
         {navLinks.map((navLink, i) => (
           <Box
@@ -47,11 +47,15 @@ export default function SideNavContent() {
               as={Link}
               href={navLink.path}
               colorScheme="primary"
-              variant={isNavLinkSelected(navLink.path) ? "solid" : "ghost"}
+              variant="ghost"
               leftIcon={<Icon as={navLink.icon} />}
               justifyContent="flex-start"
               w="48"
-              color={isNavLinkSelected(navLink.path) ? "neutral.50" : "text.primary"}
+              fontWeight="bold"
+              {...(!isNavLinkSelected(navLink.path) && {
+                color: "text.primary",
+                fontWeight: "medium",
+              })}
             >
               {navLink.label}
             </Button>

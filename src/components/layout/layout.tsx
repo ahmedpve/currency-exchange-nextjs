@@ -1,4 +1,4 @@
-import { Box, Heading, useDisclosure } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import SideNavContent from "./side-nav-content";
 
 type LayoutProps = {
@@ -6,10 +6,6 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps) {
-  const { isOpen: isMiniSideNav, onToggle: onToggleMiniSideNav } = useDisclosure({
-    defaultIsOpen: false,
-  });
-
   return (
     <Box
       display="flex"
@@ -19,10 +15,12 @@ export default function Layout({ children }: LayoutProps) {
         as="nav"
         display={{ base: "none", md: "flex" }}
         position="fixed"
-        w={isMiniSideNav ? "24" : "72"}
+        zIndex="docked"
+        w="72"
         h="full"
         borderRight="1px"
         borderColor="border"
+        bgColor="neutral.100"
       >
         <SideNavContent />
       </Box>
@@ -31,12 +29,16 @@ export default function Layout({ children }: LayoutProps) {
         flexDirection="column"
         flexGrow="1"
         minH="100vh"
-        ml={{ base: "none", md: isMiniSideNav ? "24" : "72" }}
+        ml={{ base: "none", md: "72" }}
       >
         <Box
           as="header"
           position="sticky"
-          p="space-md"
+          zIndex="sticky"
+          borderBottom="1px"
+          borderColor="border"
+          px="space-md"
+          py="space-lg"
           bgColor="bg.opaque"
         >
           <Heading
@@ -44,12 +46,13 @@ export default function Layout({ children }: LayoutProps) {
             size="md"
             fontWeight="semibold"
           >
-            Good Morning,
+            Good Morning!
           </Heading>
         </Box>
         <Box
           as="main"
           flexGrow="1"
+          p="space-md"
         >
           {children}
         </Box>
