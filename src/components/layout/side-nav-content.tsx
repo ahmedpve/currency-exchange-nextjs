@@ -1,4 +1,4 @@
-import { Box, Button, Icon } from "@chakra-ui/react";
+import { Box, Button, Center, Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaCalendarDays, FaChartLine, FaMap, FaTableColumns } from "react-icons/fa6";
@@ -18,31 +18,13 @@ export default function SideNavContent() {
   ];
 
   return (
-    <Box
-      w="full"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-    >
-      <Box
-        as="header"
-        py="space-md"
-      >
+    <Box w="full" display="flex" flexDirection="column" alignItems="center">
+      <Center as="header" w="full" h="20" borderBottom="1px" borderColor="border">
         <Logo />
-      </Box>
-      <Box
-        as="ul"
-        display="flex"
-        flexDirection="column"
-        gap="space-sm"
-        flexGrow="1"
-        py="space-md"
-      >
+      </Center>
+      <Box as="ul" display="flex" flexDirection="column" gap="space-sm" flexGrow="1" py="space-md">
         {navLinks.map((navLink, i) => (
-          <Box
-            key={i}
-            as="li"
-          >
+          <Box key={i} as="li">
             <Button
               as={Link}
               href={navLink.path}

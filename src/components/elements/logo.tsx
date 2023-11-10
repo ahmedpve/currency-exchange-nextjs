@@ -4,20 +4,12 @@ import { appConfig } from "../../config";
 
 export default function Logo() {
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      gap="space-xs"
-    >
-      <Icon
-        as={FaCloudSunRain}
-        boxSize="12"
-        color="primary.main"
-      />
+    <Box display="flex" alignItems="center" gap="space-xs">
+      <Icon as={FaCloudSunRain} boxSize="12" color="primary.dark" />
       <Heading
         as="h6"
         size="md"
-        color="secondary.dark"
+        color="primary.main"
         fontWeight="extrabold"
         textTransform="uppercase"
         letterSpacing="wide"

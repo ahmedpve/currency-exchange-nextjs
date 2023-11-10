@@ -1,4 +1,5 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
+import HeaderContent from "./header-content";
 import SideNavContent from "./side-nav-content";
 
 type LayoutProps = {
@@ -7,54 +8,35 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <Box
-      display="flex"
-      bgColor="bg.body"
-    >
+    <Box display="flex" bgColor="bg.body">
       <Box
         as="nav"
-        display={{ base: "none", md: "flex" }}
+        display={{ base: "none", lg: "flex" }}
         position="fixed"
         zIndex="docked"
         w="72"
         h="full"
         borderRight="1px"
         borderColor="border"
-        bgColor="neutral.100"
+        bgColor="bg.clear"
       >
         <SideNavContent />
       </Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        flexGrow="1"
-        minH="100vh"
-        ml={{ base: "none", md: "72" }}
-      >
+      <Box display="flex" flexDirection="column" flexGrow="1" minH="100vh" ml={{ base: "initial", lg: "72" }}>
         <Box
           as="header"
           position="sticky"
           zIndex="sticky"
+          h="20"
           borderBottom="1px"
           borderColor="border"
           px="space-md"
-          py="space-lg"
           bgColor="bg.opaque"
         >
-          <Heading
-            as="h6"
-            size="md"
-            fontWeight="semibold"
-          >
-            Good Morning!
-          </Heading>
+          <HeaderContent />
         </Box>
-        <Box
-          as="main"
-          flexGrow="1"
-          p="space-md"
-        >
-          {children}
+        <Box as="main" flexGrow="1" p="space-md">
+          <Container maxW="container.xl">{children}</Container>
         </Box>
       </Box>
     </Box>
