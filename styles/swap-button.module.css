@@ -1,0 +1,34 @@
+.button {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  box-shadow: var(--shadow-sm);
+  outline: 2px solid transparent;
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.button:hover .compareIcon {
+  transform: rotateZ(180deg);
+}
+
+.button:active {
+  transform: translateY(2px);
+}
+
+.compareIcon {
+  color: var(--color-primary-500);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.button:focus,
+.button:focus-visible {
+  outline-color: var(--color-primary-500);
+}

@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 14rem;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: var(--shadow-sm);
+  outline: 2px solid transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.chevronIcon {
+  height: 10px;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.chevronIconInverted {
+  transform: rotateX(180deg);
+  transform-origin: bottom;
+}
+
+.menuButton:focus,
+.menuButton:focus-visible {
+  outline-color: var(--color-primary-500);
+}
+
+.menuList {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: white;
+  transition: var(--transition-fast);
+}
+
+.menuListVisible {
+  max-height: 10rem;
+  overflow: auto;
+  opacity: 1;
+  border-color: var(--color-border);
+}
+
+.menuItem {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.menuItem:hover {
+  background-color: var(--color-border);
+}
+
+.disabledMenuItem {
+  pointer-events: none;
+  color: var(--color-text-disabled);
+}
+
+.filterInput {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  outline: 1px solid transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.4rem 1rem;
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+.filterInput:focus,
+.filterInput:focus-visible {
+  outline-color: var(--color-primary-500);
+}
